@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLEX - Магазин аксессуаров</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="ring.ico" type="image/x-icon"> 
+</head>
+<body>
+    <header class="header">
+        <div class="header__content">
+            <h1 class="header__title">FLEX - Магазин аксессуаров</h1>
+            <p class="header__subtitle">Стильные аксессуары для вашего образа</p>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="main.html" class="nav__link btn">Главная</a></li>
+                    <li class="nav__item"><a href="info.html" class="nav__link btn">Обо мне</a></li>
+                    <li class="nav__item"><a href="favourites.html" class="nav__link btn">Таблица цен</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="products">
+        <div class="product">
+            <!-- Таблица курса металлов -->
+            <table>
+                <caption>Курс драгоценных металлов</caption>
+                <thead>
+                    <tr>
+                        <th>Металл</th>
+                        <th>Покупка</th>
+                        <th>Продажа</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Золото</td>
+                        <td class="price-buy">8 448,74 ₽ за 1 грамм</td>
+                        <td class="price-sell">8 251,31 ₽ за 1 грамм</td>
+                    </tr>
+                    <tr>
+                        <td>Серебро</td>
+                        <td class="price-buy">87,99 ₽ за 1 грамм</td>
+                        <td class="price-sell">85,78 ₽ за 1 грамм</td>
+                    </tr>
+                    <tr>
+                        <td>Палладий</td>
+                        <td class="price-buy">1 645,00 ₽ за 1 грамм</td>
+                        <td class="price-sell">1 896,00 ₽ за 1 грамм</td>
+                    </tr>
+                    <tr>
+                        <td>Платина</td>
+                        <td class="price-buy">1 619,00 ₽ за 1 грамм</td>
+                        <td class="price-sell">1 867,00 ₽ за 1 грамм</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Таблица цен на пробы -->
+            <table>
+                <caption>Цены на пробы драгоценных металлов</caption>
+                <thead>
+                    <tr>
+                        <th>Металл</th>
+                        <th>Проба</th>
+                        <th>Цена за грамм (руб.)</th>
+                        <th>Дата обновления</th>
+                        <th>Изменение за день</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Золото</td>
+                        <td>999</td>
+                        <td>5,842.50</td>
+                        <td>05.04.2025</td>
+                        <td class="price-up">+1.2%</td>
+                    </tr>
+                    <tr>
+                        <td>Золото</td>
+                        <td>585</td>
+                        <td>3,417.86</td>
+                        <td>05.04.2025</td>
+                        <td class="price-up">+0.8%</td>
+                    </tr>
+                    <tr>
+                        <td>Серебро</td>
+                        <td>999</td>
+                        <td>68.75</td>
+                        <td>05.04.2025</td>
+                        <td class="price-down">-0.5%</td>
+                    </tr>
+                    <tr>
+                        <td>Серебро</td>
+                        <td>925</td>
+                        <td>63.59</td>
+                        <td>05.04.2025</td>
+                        <td class="price-down">-0.6%</td>
+                    </tr>
+                    <tr>
+                        <td>Платина</td>
+                        <td>950</td>
+                        <td>3,125.40</td>
+                        <td>05.04.2025</td>
+                        <td class="price-up">+0.3%</td>
+                    </tr>
+                    <tr>
+                        <td>Палладий</td>
+                        <td>850</td>
+                        <td>4,237.80</td>
+                        <td>05.04.2025</td>
+                        <td class="price-up">+2.1%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Форма покупки -->
+            <section class="form-section">
+                <h2>Форма покупки украшений</h2>
+                <form action="buy_form.php" method="post" enctype="multipart/form-data">
+                    <label>ФИО:<br><input type="text" name="full_name" required></label><br>
+                    <label>Email:<br><input type="email" name="email" required></label><br>
+                    <input type="hidden" name="form_type" value="purchase">
+                    <label>Количество изделий:<br><input type="number" name="quantity" min="1" max="10" required></label><br>
+
+                    <fieldset>
+                        <legend>Выберите тип украшения:</legend>
+                        <label><input type="checkbox" name="items[]" value="ring"> Кольцо</label><br>
+                        <label><input type="checkbox" name="items[]" value="bracelet"> Браслет</label><br>
+                        <label><input type="checkbox" name="items[]" value="chain"> Цепочка</label><br>
+                        <label><input type="checkbox" name="items[]" value="earrings"> Серьги</label>
+                    </fieldset><br>
+
+                    <fieldset>
+                        <legend>Выберите металл:</legend>
+                        <label><input type="radio" name="metal" value="gold" checked> Золото</label><br>
+                        <label><input type="radio" name="metal" value="silver"> Серебро</label><br>
+                        <label><input type="radio" name="metal" value="platinum"> Платина</label>
+                    </fieldset><br>
+
+                    <label>Комментарий к заказу:<br>
+                        <textarea name="comment" rows="4" placeholder="Например, размер кольца, пожелания к упаковке и т.д."></textarea>
+                    </label><br>
+
+                    <label>Способ доставки:<br>
+                        <select name="delivery_method">
+                            <option value="pickup">Самовывоз</option>
+                            <option value="courier">Курьер</option>
+                            <option value="mail">Почта</option>
+                        </select>
+                    </label><br>
+
+                    <label>Прикрепите эскиз (если есть):<br>
+                        <input type="file" name="sketch" accept="image/*">
+                    </label><br>
+
+                    <input type="reset" value="Очистить">
+                    <input type="submit" value="Оформить заказ">
+                </form>
+            </section>
+
+            <!-- Расписание группы -->
+            <h2 style="text-align: center;">Расписание группы ПИ-24в</h2>
+            <table border="1" cellpadding="10" cellspacing="0" style="margin: auto; width: 90%; text-align: center;">
+              <thead>
+                <tr>
+                  <th>День</th>
+                  <th>Пара</th>
+                  <th>Дисциплина</th>
+                  <th>Тип</th>
+                  <th>Аудитория</th>
+                  <th>Преподаватель</th>
+                  <th>Удалить</th>
+                </tr>
+              </thead>
+              <tbody id="schedule-body">
+                <tr>
+                  <td>Понедельник</td>
+                  <td>1</td>
+                  <td>Объектно-ориентированное программирование</td>
+                  <td>лекция</td>
+                  <td>8.704</td>
+                  <td>Грищенко Д.А.</td>
+                  <td><button type="button" class="delete-row">Удалить</button></td>
+                </tr>
+                <tr>
+                  <td>Понедельник</td>
+                  <td>2</td>
+                  <td>Высшая математика</td>
+                  <td>практика</td>
+                  <td>5.432</td>
+                  <td>Скворцов А.Е.</td>
+                  <td><button type="button" class="delete-row">Удалить</button></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <hr style="margin: 40px 0;">
+
+            <!-- Форма добавления занятия -->
+            <h3 style="text-align: center;">Добавить занятие</h3>
+            <form class="form-section" style="max-width: 600px; margin: auto;">
+              <label>День недели:
+                <select name="day" required>
+                  <option value="">Выберите</option>
+                  <option>Понедельник</option>
+                  <option>Вторник</option>
+                  <option>Среда</option>
+                  <option>Четверг</option>
+                  <option>Пятница</option>
+                  <option>Суббота</option>
+                </select>
+              </label>
+
+              <label>Номер пары:
+                <input type="number" name="time" min="1" max="8" required>
+              </label>
+
+              <label>Название дисциплины:
+                <input type="text" name="subject" required>
+              </label>
+
+              <label>Тип занятия:
+                <select name="type" required>
+                  <option value="">Выберите</option>
+                  <option>лекция</option>
+                  <option>практика</option>
+                  <option>лабораторная</option>
+                </select>
+              </label>
+
+              <label>Аудитория:
+                <input type="text" name="room" pattern="\d{1,3}(\.\d{1,3})?" required>
+              </label>
+
+              <label>Преподаватель:
+                <input type="text" name="teacher" required>
+              </label>
+
+              <div style="text-align: center; margin-top: 1rem;">
+                <input type="submit" value="Добавить">
+                <input type="reset" value="Сбросить">
+              </div>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer__content">
+            <p class="footer__copyright">&copy; 2025 FLEX - Все права защищены</p>
+            <p class="footer__author">Автор: Прохира Марк</p>
+            <address class="footer__address">Адрес офиса: ул. Пушкина, 123, г. Харцызск</address>
+        </div>
+    </footer>
+
+    <!-- Скрипт для удаления строки расписания -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          // Форма, у которой есть поле subject
+          const form = document.querySelector("form input[name='subject']").closest("form");
+          const scheduleBody = document.getElementById("schedule-body");
+      
+          // Удаление строк
+          scheduleBody.addEventListener("click", function (event) {
+            if (event.target.classList.contains("delete-row")) {
+              const row = event.target.closest("tr");
+              row.remove();
+            }
+          });
+      
+          // Добавление строки
+          form.addEventListener("submit", function (event) {
+            event.preventDefault();
+      
+            const day = form.elements["day"].value;
+            const time = form.elements["time"].value;
+            const subject = form.elements["subject"].value;
+            const type = form.elements["type"].value;
+            const room = form.elements["room"].value;
+            const teacher = form.elements["teacher"].value;
+      
+            if (!day || !time || !subject || !type || !room || !teacher) {
+              alert("Пожалуйста, заполните все поля!");
+              return;
+            }
+      
+            const newRow = document.createElement("tr");
+            newRow.innerHTML = `
+              <td>${day}</td>
+              <td>${time}</td>
+              <td>${subject}</td>
+              <td>${type}</td>
+              <td>${room}</td>
+              <td>${teacher}</td>
+              <td><button type="button" class="delete-row">Удалить</button></td>
+            `;
+      
+            scheduleBody.appendChild(newRow);
+            form.reset();
+          });
+        });
+      </script>
+      
+        
+    
+</body>
+</html>
